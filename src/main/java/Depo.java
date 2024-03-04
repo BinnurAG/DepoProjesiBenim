@@ -29,6 +29,7 @@ public class Depo {
     public void urunGirisi(int id, int miktar) {
         for (Urun urun : urunListesi) {
             if (urun.getId() == id) {
+                System.out.println("Depoda bulunan ürün miktari " +miktar);
                 int yeniMiktar = urun.getMiktar() + miktar;
                 urun.setMiktar(yeniMiktar);
                 System.out.println("Ürün girişi yapıldı. Yeni miktar: " + yeniMiktar);
