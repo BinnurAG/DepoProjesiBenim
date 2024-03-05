@@ -88,16 +88,6 @@ class Depo {
 }*/
 
 
-
-
-    public void urunGirisi(int id, int girisMiktar) {
-        Urun urun = urunler.get(id);
-        if (urun != null) {
-            int yeniMiktar = urun.getMiktar() + girisMiktar;
-            urun.setMiktar(yeniMiktar);
-            System.out.println("Ürün girişi yapıldı. Yeni miktar: " + yeniMiktar + " Giriş zamanı "+ formattedTime);
-        } else {
-            System.out.println("Ürün bulunamadı.");
         }
     }
 
