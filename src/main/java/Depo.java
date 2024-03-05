@@ -92,6 +92,7 @@ public class Depo {
 }*/
 
 
+
         public void urunGirisi ( int id, int girisMiktar){
             Urun urun = urunler.get(id);
             if (urun != null) {
@@ -101,6 +102,7 @@ public class Depo {
             } else {
                 System.out.println("Ürün bulunamadı.");
             }
+
         }
 
 
