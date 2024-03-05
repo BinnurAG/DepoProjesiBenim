@@ -5,35 +5,31 @@ import java.util.function.ToDoubleBiFunction;
 public class DepoUygulamasi {
 
 
+    public static void main(String[] args) throws InterruptedException {
 
-
-    public static void main(String[] args) throws InterruptedException{
         Scanner scanner = new Scanner(System.in);
         Depo depo = new Depo();
-
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_UNDERLINE = "\u001B[4m";
+        final String ANSI_RESET = "\u001B[0m";
+        final String ANSI_CYAN = "\u001B[36m";
+        final String ANSI_YELLOW = "\u001B[33m";
         // TODO: 04/03/2024 aynı ürün geldiğinde, bu ürün mevcuttur diye uyarı versin, ürün eklemeye devam etmek için 1 e çıkmak için 9 a basın
-
-
-
-
-
-
-
 
 
         //mismatch exception ı kullanacak mıyız?
         while (true) {
 
 
-
-            System.out.println("\nDepo Uygulaması");
-            System.out.println("1- Ürün Tanımlama");
-            System.out.println("2- Ürün Listeleme");
-            System.out.println("3- Ürün Girişi");
-            System.out.println("4- Ürünü Rafa Koyma");
-            System.out.println("5- Ürün Çıkışı");
-            System.out.println("6- Çıkış");
-            System.out.print("Seçiminizi yapın: ");
+            System.out.println(ANSI_YELLOW + "=============   GIDA DEPOSU =============\n" +
+                    "=========== ANA MENU ============\n" +
+                    "\t   1- Ürün Tanımlama\n" +
+                    "\t   2- Ürün Listeleme\n" +
+                    "\t   3- Ürün Girişi\n" +
+                    "\t   4- Ürünü Rafa Koyma\t\n" +
+                    "\t   5- Ürün Çıkışı \t\n" +
+                    "\t   6- Çıkış" + ANSI_RESET);
+            System.out.println(ANSI_BLUE + "Lütfen Menuden tercihinizi yapiniz" + ANSI_RESET);
 
 
             int secim;
@@ -48,16 +44,23 @@ public class DepoUygulamasi {
 
             switch (secim) {
                 case 1:
-
+                    System.out.println(ANSI_BLUE + "                          *** URUN TANIMLAMA ***          " + ANSI_RESET);
+                    System.out.println("---------------------------------------------------------------------------------------------");
                     scanner.nextLine();
                     System.out.print("Ürün İsmi: ");
                     String urunIsmi = scanner.nextLine();
                     System.out.print("Üretici: ");
                     String uretici = scanner.nextLine();
-                    System.out.print("Birim: ");
+                    System.out.print("Birim: (cuval,koli,teneke) ");
                     String birim = scanner.nextLine();
-                    depo.urunTanimlama(urunIsmi, uretici, birim);
+                    if (depo.isExist(urunIsmi,uretici,birim)) {
+                        System.out.println("“Bu urun depoda mevcuttur Lutfen urun girisini seciniz“");
+                        break;
+                    } else {
+                        depo.urunTanimlama(urunIsmi, uretici, birim);
+                    }
                     break;
+
                 case 2:
                     depo.urunListele();
                     break;
@@ -87,9 +90,12 @@ public class DepoUygulamasi {
                     scanner.close();
                     System.exit(0);
                 default:
-                     System.out.println("Geçersiz seçim. Tekrar deneyin.");
+                    System.out.println("Geçersiz seçim. Tekrar deneyin.");
+
+
 
             }
+            Thread.sleep(1000);
         }
     }
 }
