@@ -134,7 +134,7 @@ public class Depo {
             }
         }
 
-        private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
+      /*  private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
             String metinGirisi;
             do {
                 System.out.println(mesaj);
@@ -167,6 +167,8 @@ public class Depo {
             }
             return isExist;
         }
+        */
+
     }
 
 
