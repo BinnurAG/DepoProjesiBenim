@@ -135,7 +135,7 @@ public class Depo {
             }
         }
 
-        private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
+       /* private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
             String metinGirisi;
             do {
                 System.out.println(mesaj);
@@ -158,6 +158,8 @@ public class Depo {
             int maxKa = 20;
             return girdi.matches(gecerliKullanim) && girdi.length() >= minKa && girdi.length() <= maxKa;
         }
+
+        */
         public boolean isExist (String urunIsmi, String uretici, String birim){
             boolean isExist = false;
             for (Urun urun : urunler.values()) {
