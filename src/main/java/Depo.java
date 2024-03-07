@@ -101,40 +101,39 @@ public class Depo {
             } else {
                 System.out.println("Ürün bulunamadı.");
 
-            }
-        }
 
+                public void urunuRafaKoy ( int id, String raf){
+                    Urun urun = urunler.get(id);
+                    if (urun != null) {
+                        urun.setRaf(raf);
+                        System.out.println("Ürün rafa konuldu.");
+                    } else
+                        System.out.println("Ürün bulunamadı.");
 
-        public void urunuRafaKoy ( int id, String raf){
-            Urun urun = urunler.get(id);
-            if (urun != null) {
-                urun.setRaf(raf);
-                System.out.println("Ürün rafa konuldu.");
-            } else
-                System.out.println("Ürün bulunamadı.");
-
-        }
-
-        public void urunCikisi ( int id, int miktar){
-            for (Urun urun : urunListesi) {
-                if (urun.getId() == id) {
-                    int yeniMiktar = urun.getMiktar() - miktar;
-                    if (yeniMiktar >= 0) {
-                        urun.setMiktar(yeniMiktar);
-                        System.out.println("Ürün çıkışı yapıldı. Yeni miktar: " + yeniMiktar);
-                    } else {
-                        System.out.println("Stokta yeterli ürün yok.");
-                    }
-                    return;
                 }
-            }else{
-                System.out.println("Ürün bulunamadı.");
+
+                public void urunCikisi ( int id, int miktar){
+                    for (Urun urun : urunListesi) {
+                        if (urun.getId() == id) {
+                            int yeniMiktar = urun.getMiktar() - miktar;
+                            if (yeniMiktar >= 0) {
+                                urun.setMiktar(yeniMiktar);
+                                System.out.println("Ürün çıkışı yapıldı. Yeni miktar: " + yeniMiktar);
+                            } else {
+                                System.out.println("Stokta yeterli ürün yok.");
+                            }
+                            return;
+                        }
+                    }else{
+                        System.out.println("Ürün bulunamadı.");
 
 
-            }
-        }
+                    }
+                }
 
-        private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
+
+       /* private String kullaniciBilgiAlma (String mesaj, String hataMesaji){
+
             String metinGirisi;
             do {
                 System.out.println(mesaj);
@@ -157,17 +156,22 @@ public class Depo {
             int maxKa = 20;
             return girdi.matches(gecerliKullanim) && girdi.length() >= minKa && girdi.length() <= maxKa;
         }
-        public boolean isExist (String urunIsmi, String uretici, String birim){
-            boolean isExist = false;
-            for (Urun urun : urunler.values()) {
-                if (urun.getUrunIsmi().equals(urunIsmi) && urun.getUretici().equals(uretici) && urun.getBirim().equals(birim)) {
-                    isExist = true;
-                    continue;
+
+
+        */
+
+                public boolean isExist (String urunIsmi, String uretici, String birim){
+                    boolean isExist = false;
+                    for (Urun urun : urunler.values()) {
+                        if (urun.getUrunIsmi().equals(urunIsmi) && urun.getUretici().equals(uretici) && urun.getBirim().equals(birim)) {
+                            isExist = true;
+                            continue;
+                        }
+                    }
+                    return isExist;
                 }
+
             }
-            return isExist;
         }
     }
-
-
 }
